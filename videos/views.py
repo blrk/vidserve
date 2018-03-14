@@ -118,8 +118,8 @@ def upload(request):
         if form.is_valid():
             new = form.save(commit=False)
             new.owner = request.user
-            new.video_title=request.POST["title"]
-            new.file_file=request.FILES["myfile"]
+            #new.video_title=request.POST["title"]
+            #new.file_file=request.FILES["myfile"]
             new.save()
             return redirect('/')
     else:
