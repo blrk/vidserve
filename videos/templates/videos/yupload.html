@@ -1,0 +1,44 @@
+{% extends 'videos/base.html'%}
+{% block active %}
+<li class=""><a href="{% url 'videos:index' %}"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>&nbsp;Videos</a></li>
+<li class="active"><a activehref="{% url 'videos:yuploads' %}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Your Uploads</a></li>
+{% endblock %}
+
+{% block body %}
+
+<style>
+  .list-group-item{
+    display: inline-block;
+    padding: 1%;
+    margin: 1%;
+  }
+  video{
+    height: 200px;
+    width: 300px;
+    border: none;
+  }
+  .container{
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 95%;
+  }
+
+</style>
+
+{% if x %}
+<div class="container">
+<ul class="list-group">
+  {% for y in x %}
+ <li class="list-group-item">
+   <a href="{{y.file_file.url}}">
+   <video width="320" height="240" preload="metadata">
+   <source src="{{y.file_file.url}}">
+   </video></a>
+   <p><h4>{{y.video_title}}</h4></p>
+   <a href="{{y.file_file}}"><button type="button" class="btn btn-outline-primary" style="display: block;margin-right:2%; float:right; background: skyblue;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;Remove</button></a>
+ </li>
+ {% endfor %}
+</ul>
+</div>
+{% endif %}
+{% endblock %}
