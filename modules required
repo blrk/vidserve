@@ -1,0 +1,7 @@
+python packages:
+  python-swiftclient
+  pytho-keystoneclient
+  django-storage-swift
+ 
+making swift container public:
+  swift post -r .r:* container_name
